@@ -15,12 +15,15 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         Intent intent = getIntent();
+//        テキストエディタ１
         int value1 = intent.getIntExtra("VALUE1",0);
+//        テキストエディタ２
         int value2 = intent.getIntExtra("VALUE2",0);
+//        ボタン番号(分岐用）
         int value3 = intent.getIntExtra("VALUE3",0);
 
             TextView textView = (TextView) findViewById(R.id.textView);
-
+//            押したボタンによってvalue３の値が変わる。それぞれの演算へ分岐
             if (value3 == 1) {
                 textView.setText(String.valueOf(value1 - value2));
             } else if (value3 == 2) {
