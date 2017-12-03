@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        テキストエディタiD取得
         editText1= (EditText) findViewById(R.id.editText1);
         editText2 = (EditText)findViewById(R.id.editText2);
-        editText1.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText2.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editText1.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_SIGNED);
+        editText2.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_SIGNED);
     }
     @Override
     public void onClick(View v){
