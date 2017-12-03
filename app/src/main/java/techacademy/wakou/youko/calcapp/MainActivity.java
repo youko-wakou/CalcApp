@@ -40,14 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String val2 = editText2.getText().toString();
         double value1 = Double.parseDouble(val1);
         double value2 = Double.parseDouble(val2);
-
+//        入力チェック
         boolean bool1 = val1.isEmpty();
         boolean bool2 = val2.isEmpty();
-
+//        空でなければ遷移先へ値を送る
         if(bool1== true || bool2 == true){
             System.out.print("数値を入力してください");
         }else {
-
             Intent intent = new Intent(this, SecondActivity.class);
            intent.putExtra("VALUE1", value1);
             intent.putExtra("VALUE2", value2);
