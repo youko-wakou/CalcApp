@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v){
-        String val1 = editText1.toString();
-        String val2 = editText2.toString();
+        String val1 = editText1.getText().toString();
+        String val2 = editText2.getText().toString();
         double value1 = Double.parseDouble(val1);
         double value2 = Double.parseDouble(val2);
 
