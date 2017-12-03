@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            if(v.getId() == R.id.button4 && value2==0) {
                Log.d("test","0で割ることはできません");
                new AlertDialog.Builder(this)
-                       .setTitle("title")
+                       .setTitle("エラー")
                        .setMessage("0で割ることはできません")
                        .setPositiveButton("OK",null)
                        .show();
