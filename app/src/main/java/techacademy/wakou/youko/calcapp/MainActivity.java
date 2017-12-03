@@ -41,29 +41,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double value1 = Double.parseDouble(val1);
         double value2 = Double.parseDouble(val2);
 
-        boolean bool1= val1.isEmpty();
-        boolean bool2= val2.isEmpty();
+        boolean bool1 = val1.isEmpty();
+        boolean bool2 = val2.isEmpty();
 
-        Intent intent = new Intent(this,SecondActivity.class);
-        if(bool1== false || bool2==false) {
-            //        テキストエディタ遷移先への値
-            intent.putExtra("VALUE1", value1);
+        if(bool1== true || bool2 == true){
+            System.out.print("数値を入力してください");
+        }else {
+
+            Intent intent = new Intent(this, SecondActivity.class);
+           intent.putExtra("VALUE1", value1);
             intent.putExtra("VALUE2", value2);
-        }else{
-            System.out.print("数字を入力してください");
-        }
-//        分岐で押したボタンによって遷移先に値を送る
-        if(v.getId() == R.id.button1) {
-            intent.putExtra("VALUE3",1);
-//            Log.d("test",val1+val2);
-         }else if(v.getId() == R.id.button2){
-            intent.putExtra("VALUE3",2);
-        }else if(v.getId() == R.id.button3){
-             intent.putExtra("VALUE3",3);
-        }else if(v.getId() == R.id.button4){
-            intent.putExtra("VALUE3",4);
-        }
-        startActivity(intent);
 
+//        分岐で押したボタンによって遷移先に値を送る
+            if (v.getId() == R.id.button1) {
+                intent.putExtra("VALUE3", 1);
+//            Log.d("test",val1+val2);
+            } else if (v.getId() == R.id.button2) {
+                intent.putExtra("VALUE3", 2);
+            } else if (v.getId() == R.id.button3) {
+                intent.putExtra("VALUE3", 3);
+            } else if (v.getId() == R.id.button4) {
+                intent.putExtra("VALUE3", 4);
+            }
+            startActivity(intent);
+        }
     }
 }
