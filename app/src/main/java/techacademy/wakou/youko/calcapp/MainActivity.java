@@ -41,11 +41,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double value1 = Double.parseDouble(val1);
         double value2 = Double.parseDouble(val2);
 
-        Intent intent = new Intent(this,SecondActivity.class);
-//        テキストエディタ遷移先への値
-        intent.putExtra("VALUE1",value1);
-        intent.putExtra("VALUE2",value2);
+        boolean bool1= val1.isEmpty();
+        boolean bool2= val2.isEmpty();
 
+        Intent intent = new Intent(this,SecondActivity.class);
+        if(bool1== false || bool2==false) {
+            //        テキストエディタ遷移先への値
+            intent.putExtra("VALUE1", value1);
+            intent.putExtra("VALUE2", value2);
+        }else{
+            System.out.print("数字を入力してください");
+        }
 //        分岐で押したボタンによって遷移先に値を送る
         if(v.getId() == R.id.button1) {
             intent.putExtra("VALUE3",1);

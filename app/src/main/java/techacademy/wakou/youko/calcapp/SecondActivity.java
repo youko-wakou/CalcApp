@@ -16,9 +16,9 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 //        テキストエディタ１
-        int value1 = intent.getIntExtra("VALUE1",0);
+        double value1 = intent.getDoubleExtra("VALUE1",0);
 //        テキストエディタ２
-        int value2 = intent.getIntExtra("VALUE2",0);
+        double value2 = intent.getDoubleExtra("VALUE2",0);
 //        ボタン番号(分岐用）
         int value3 = intent.getIntExtra("VALUE3",0);
 
