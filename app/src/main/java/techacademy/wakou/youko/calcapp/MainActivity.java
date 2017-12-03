@@ -35,8 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        テキストエディタiD取得
         editText1= (EditText) findViewById(R.id.editText1);
         editText2 = (EditText)findViewById(R.id.editText2);
-        editText1.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_SIGNED);
-        editText2.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_SIGNED);
+//        入力値チェック
+        editText1.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_NUMBER_FLAG_SIGNED);
+        editText2.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_NUMBER_FLAG_SIGNED);
     }
     @Override
     public void onClick(View v){
@@ -46,13 +47,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             double value1 = Double.parseDouble(val1);
             double value2 = Double.parseDouble(val2);
 //        入力チェック
-            boolean bool1 = val1.isEmpty();
-            boolean bool2 = val2.isEmpty();
-            System.out.print("数値を入力してください");
+//            boolean bool1 = val1.isEmpty();
+//            boolean bool2 = val2.isEmpty();
             Intent intent = new Intent(this, SecondActivity.class);
            intent.putExtra("VALUE1", value1);
-            intent.putExtra("VALUE2", value2);
-
+           if(v.getId() == R.id.button4 && value2!=0) {
+               intent.putExtra("VALUE2", value2);
+           }else{
+                System.out.print("0で割ることはできません");
+           }
 //        分岐で押したボタンによって遷移先に値を送る
             if (v.getId() == R.id.button1) {
                 intent.putExtra("VALUE3", 1);
