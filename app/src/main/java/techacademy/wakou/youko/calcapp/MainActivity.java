@@ -2,6 +2,9 @@ package techacademy.wakou.youko.calcapp;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            intent.putExtra("VALUE1", value1);
            if(v.getId() == R.id.button4 && value2==0) {
                Log.d("test","0で割ることはできません");
-               new AlertDialog.Builder(getActivity())
+               new AlertDialog.Builder(this)
                        .setTitle("title")
                        .setMessage("0で割ることはできません")
                        .setPositiveButton("OK",null)
@@ -77,6 +80,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            }
         }catch(Exception e){
             Log.d("test","数値を入力してください");
+            new AlertDialog.Builder(this)
+                    .setTitle("エラー")
+                    .setMessage("数値を入力してください")
+                    .setPositiveButton("OK",null)
+                    .show();
+
         }
     }
 }
