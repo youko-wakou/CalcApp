@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            boolean bool2 = val2.isEmpty();
             Intent intent = new Intent(this, SecondActivity.class);
            intent.putExtra("VALUE1", value1);
-           if(v.getId() == R.id.button4 && value2!=0) {
-               intent.putExtra("VALUE2", value2);
+           if(v.getId() == R.id.button4 && value2==0) {
+               System.out.print("0で割ることはできません");
            }else{
-                System.out.print("0で割ることはできません");
+               intent.putExtra("VALUE2", value2);
            }
 //        分岐で押したボタンによって遷移先に値を送る
             if (v.getId() == R.id.button1) {
