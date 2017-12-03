@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        入力値チェック
         editText1.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_NUMBER_FLAG_SIGNED);
         editText2.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_NUMBER_FLAG_SIGNED);
+
     }
+
     @Override
     public void onClick(View v){
         String val1 = editText1.getText().toString();
@@ -52,24 +54,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, SecondActivity.class);
            intent.putExtra("VALUE1", value1);
            if(v.getId() == R.id.button4 && value2==0) {
-               System.out.print("0で割ることはできません");
-           }else{
+               Log.d("test","0で割ることはできません");
+               new AlertDialog.Builder(getActivity())
+                       .setTitle("title")
+                       .setMessage("0で割ることはできません")
+                       .setPositiveButton("OK",null)
+                       .show();
+
+           }else {
                intent.putExtra("VALUE2", value2);
-           }
 //        分岐で押したボタンによって遷移先に値を送る
-            if (v.getId() == R.id.button1) {
-                intent.putExtra("VALUE3", 1);
-//            Log.d("test",val1+val2);
-            } else if (v.getId() == R.id.button2) {
-                intent.putExtra("VALUE3", 2);
-            } else if (v.getId() == R.id.button3) {
-                intent.putExtra("VALUE3", 3);
-            } else if (v.getId() == R.id.button4) {
-                intent.putExtra("VALUE3", 4);
-            }
-            startActivity(intent);
+               if (v.getId() == R.id.button1) {
+                   intent.putExtra("VALUE3", 1);
+               } else if (v.getId() == R.id.button2) {
+                   intent.putExtra("VALUE3", 2);
+               } else if (v.getId() == R.id.button3) {
+                   intent.putExtra("VALUE3", 3);
+               } else if (v.getId() == R.id.button4) {
+                   intent.putExtra("VALUE3", 4);
+               }
+               startActivity(intent);
+           }
         }catch(Exception e){
-            System.out.print("数値を入力してください");
+            Log.d("test","数値を入力してください");
         }
     }
 }
