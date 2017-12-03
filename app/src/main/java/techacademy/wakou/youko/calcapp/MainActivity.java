@@ -36,8 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v){
-        String val1 = editText1.toString();
-        String val2 = editText2.toString();
+//        String val1 = editText1.toString();
+//        String val2 = editText2.toString();
+        double val1 = editText1.parseDouble();
+        double val2 = editText2.parseDouble();
+
         Intent intent = new Intent(this,SecondActivity.class);
 //        テキストエディタ遷移先への値
         intent.putExtra("VALUE1",val1);
@@ -45,14 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //        分岐で押したボタンによって遷移先に値を送る
         if(v.getId() == R.id.button1) {
-            intent.putExtra("VALUE3","1");
-            Log.d("test",val1+val2);
+            intent.putExtra("VALUE3",1);
+//            Log.d("test",val1+val2);
          }else if(v.getId() == R.id.button2){
-            intent.putExtra("VALUE3","2");
+            intent.putExtra("VALUE3",2);
         }else if(v.getId() == R.id.button3){
-             intent.putExtra("VALUE3","3");
+             intent.putExtra("VALUE3",3);
         }else if(v.getId() == R.id.button4){
-            intent.putExtra("VALUE3","4");
+            intent.putExtra("VALUE3",4);
         }
         startActivity(intent);
 
