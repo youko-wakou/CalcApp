@@ -48,9 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean bool1 = val1.isEmpty();
         boolean bool2 = val2.isEmpty();
 //        空でなければ遷移先へ値を送る
-        if(bool1== true || bool2 == true){
+        try{
             System.out.print("数値を入力してください");
-        }else {
             Intent intent = new Intent(this, SecondActivity.class);
            intent.putExtra("VALUE1", value1);
             intent.putExtra("VALUE2", value2);
@@ -67,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("VALUE3", 4);
             }
             startActivity(intent);
+        }catch(Exception e){
+            System.out.print("数値を入力してください");
         }
     }
 }
